@@ -14,10 +14,6 @@ body {
     font: Helvetica, Arial, sans-serif;
 }
 
-.wip {
-    color: maroon;
-}
-
 
 /*
 ========================================
@@ -144,32 +140,31 @@ tbody td {
     padding-top: 21px;
 }
 
+.dynamic-fare {
+    display: none;
+}
 
-/* tbody td:hover {
-visibility: hidden;
-} */
-
-tbody td .trip-fare:hover {
-    visibility: hidden;
+.overpriced {
+    color: maroon;
 }
 
 
-/* 
-table td .trip-day {
-    visibility: hidden;
+/*adds a "dagger" character to reference in the footnotes*/
+
+.overpriced::before {
+    content: "\2020 ";
 }
 
-table td .trip-day:hover {
-    visibility: visible;
+.breakeven {
+    color: grey;
 }
 
-tbody td .trip-night {
-    visibility: hidden;
-}
 
-tbody td .trip-mixed {
-    visibility: hidden;
-} */
+/*adds a "dagger" character to reference in the footnotes*/
+
+.breakeven::before {
+    content: "\2021 ";
+}
 
 tbody td:first-of-type {
     padding-right: 15px;

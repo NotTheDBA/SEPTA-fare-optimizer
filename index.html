@@ -5,6 +5,42 @@
     <meta charset="utf-8">
     <title>Fare Optimizer</title>
     <link rel="stylesheet" href="assets/style/main.css">
+    <!-- <script src="main.js"></script> -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+        // Give the parameter a variable name
+        var dynamicContent = getParameterByName('trip-type');
+
+        $(document).ready(function() {
+
+            // Check if the URL parameter is trip-day
+            if (dynamicContent == 'Day') {
+                $('.trip-day').show();
+            }
+            // Check if the URL parameter is trip=eve
+            else if (dynamicContent == 'Night') {
+                $('.trip-eve').show();
+            }
+            // Check if the URL parameter is trip-mix
+            else if (dynamicContent == 'Mixed') {
+                $('.trip-mix').show();
+            }
+            // Check if the URL parmeter is empty or not defined, display default content
+            else {
+                $('.trip-fare').show();
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -12,7 +48,7 @@
 
     <header class="container head">
         <h1 class="logo">
-            <a href="index.html">Fare Optimizer - <div class="wip">W.I.P.</div></a>
+            <a href="index.html">Fare Optimizer</a>
         </h1>
         <h4 class="tagline">
             When does it make sense to buy a SEPTA pass?
@@ -22,9 +58,10 @@
 
     <section class="container ">
         <form class="btn-group">
-            <input class="btn btn-default" type="submit" name="day-trip" value="Day Trips">
-            <input class="btn btn-default" type="submit" name="night-trip" value="Evening Trips">
-            <input class="btn btn-default" type="submit" name="mix-trip" value="Mixed Trips">
+            <input class="btn btn-default" type="submit" name="trip-type" value="Fare">
+            <input class="btn btn-default" type="submit" name="trip-type" value="Day">
+            <input class="btn btn-default" type="submit" name="trip-type" value="Night">
+            <input class="btn btn-default" type="submit" name="trip-type" value="Mixed">
         </form>
         <!-- <p>How many trips do you have to take before it makes sense to buy a pass?</p> -->
     </section>
@@ -58,21 +95,60 @@
                         <time>Monthly</time>
                     </th>
                     <td>
-                        <div class="trip-fare">
-                            105.00
-                        </div>
-                        <!-- <div class="trip-day">
-                            20
-                        </div> -->
+                        <span class="dynamic-fare trip-fare">
+                            $105.00
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            20 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve">
+                            25 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            23 trips
+                        </span>
                     </td>
                     <td>
-                        144.00
+                        <span class="dynamic-fare trip-fare">
+                            $144.00
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            28 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve">
+                            34 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            31 trips
+                        </span>
                     </td>
                     <td>
-                        174.00
+                        <span class="dynamic-fare trip-fare">
+                            $174.00
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            29 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve">
+                            34 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            31 trips
+                        </span>
                     </td>
                     <td>
-                        204.00
+                        <span class="dynamic-fare trip-fare">
+                            $204.00
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            31 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve">
+                            39 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            34 trips
+                        </span>
                     </td>
                 </tr>
                 <tr class="table-numbers">
@@ -80,16 +156,60 @@
                         <time>Weekly</time>
                     </th>
                     <td>
-                        28.25
+                        <span class="dynamic-fare trip-fare">
+                            $28.25
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            6 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve">
+                            7 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            6 trips
+                        </span>
                     </td>
                     <td>
-                        39.00
+                        <span class="dynamic-fare trip-fare">
+                            $39.00
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            8 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve">
+                            10 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            9 trips
+                        </span>
                     </td>
                     <td>
-                        47.00
+                        <span class="dynamic-fare trip-fare">
+                            $47.00
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            8 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve">
+                            9 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            9 trips
+                        </span>
                     </td>
                     <td>
-                        55.75
+                        <span class="dynamic-fare trip-fare">
+                            $55.75
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            9 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve">
+                            11 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            10 trips
+                        </span>
                     </td>
                 </tr>
                 <tr class="table-numbers">
@@ -97,16 +217,60 @@
                         <time>10-Trip</time>
                     </th>
                     <td>
-                        40.00
+                        <span class="dynamic-fare trip-fare">
+                            $40.00
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            8 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve breakeven">
+                            10 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            9 trips
+                        </span>
                     </td>
                     <td>
-                        47.50
+                        <span class="dynamic-fare trip-fare">
+                            $47.50
+                        </span>
+                        <span class="dynamic-fare trip-day breakeven">
+                            10 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve overpriced">
+                            12 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix breakeven">
+                            10 trips
+                        </span>
                     </td>
                     <td>
-                        57.50
+                        <span class="dynamic-fare trip-fare">
+                            $57.50
+                        </span>
+                        <span class="dynamic-fare trip-day breakeven">
+                            10 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve overpriced">
+                            11 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix overpriced">
+                            11 trips
+                        </span>
                     </td>
                     <td>
-                        65.00
+                        <span class="dynamic-fare trip-fare">
+                            $65.00
+                        </span>
+                        <span class="dynamic-fare trip-day breakeven">
+                            10 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve overpriced">
+                            13 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix overpriced">
+                            11 trips
+                        </span>
                     </td>
                 </tr>
                 <tr class="table-numbers">
@@ -114,16 +278,60 @@
                         <time>Independence Pass</time>
                     </th>
                     <td>
-                        13.00
+                        <span class="dynamic-fare trip-fare">
+                            $13.00
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            3 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve">
+                            4 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            3 trips
+                        </span>
                     </td>
                     <td>
-                        13.00
+                        <span class="dynamic-fare trip-fare">
+                            $13.00
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            3 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve">
+                            4 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            3 trips
+                        </span>
                     </td>
                     <td>
-                        13.00
+                        <span class="dynamic-fare trip-fare">
+                            $13.00
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            3 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve">
+                            3 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            3 trips
+                        </span>
                     </td>
                     <td>
-                        13.00
+                        <span class="dynamic-fare trip-fare">
+                            $13.00
+                        </span>
+                        <span class="dynamic-fare trip-day">
+                            2 trips
+                        </span>
+                        <span class="dynamic-fare trip-eve">
+                            3 trips
+                        </span>
+                        <span class="dynamic-fare trip-mix">
+                            3 trips
+                        </span>
                     </td>
                 </tr>
                 <tr class="table-numbers">
@@ -131,16 +339,60 @@
                         <time>1 Trip (Day)</time>
                     </th>
                     <td>
-                        5.25
+                        <span class="dynamic-fare trip-fare">
+                            $5.25
+                        </span>
+                        <span class="dynamic-fare trip-day breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-eve breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-mix breakeven">
+                            1 trip
+                        </span>
                     </td>
                     <td>
-                        5.25
+                        <span class="dynamic-fare trip-fare">
+                            $5.25
+                        </span>
+                        <span class="dynamic-fare trip-day breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-eve breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-mix breakeven">
+                            1 trip
+                        </span>
                     </td>
                     <td>
-                        6.00
+                        <span class="dynamic-fare trip-fare">
+                            $6.00
+                        </span>
+                        <span class="dynamic-fare trip-day breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-eve breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-mix breakeven">
+                            1 trip
+                        </span>
                     </td>
                     <td>
-                        6.75
+                        <span class="dynamic-fare trip-fare">
+                            $6.75
+                        </span>
+                        <span class="dynamic-fare trip-day breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-eve breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-mix breakeven">
+                            1 trip
+                        </span>
                     </td>
                 </tr>
                 <tr class="table-numbers">
@@ -148,20 +400,74 @@
                         <time>1 Trip (Evening)</time>
                     </th>
                     <td>
-                        4.25
+                        <span class="dynamic-fare trip-fare">
+                            $4.25
+                        </span>
+                        <span class="dynamic-fare trip-day breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-eve breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-mix breakeven">
+                            1 trip
+                        </span>
                     </td>
                     <td>
-                        4.25
+                        <span class="dynamic-fare trip-fare">
+                            $4.25
+                        </span>
+                        <span class="dynamic-fare trip-day breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-eve breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-mix breakeven">
+                            1 trip
+                        </span>
                     </td>
                     <td>
-                        5.25
+                        <span class="dynamic-fare trip-fare">
+                            $5.25
+                        </span>
+                        <span class="dynamic-fare trip-day breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-eve breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-mix breakeven">
+                            1 trip
+                        </span>
                     </td>
                     <td>
-                        5.25
+                        <span class="dynamic-fare trip-fare">
+                            $5.25
+                        </span>
+                        <span class="dynamic-fare trip-day breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-eve breakeven">
+                            1 trip
+                        </span>
+                        <span class="dynamic-fare trip-mix breakeven">
+                            1 trip
+                        </span>
                     </td>
                 </tr>
 
             </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td colspan=4 class="dynamic-fare trip-day trip-eve trip-mix breakeven">The fares flagged with this symbol are "break-even" fares; they don't really save you money, but it doesn't cost extra to buy them.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan=4 class="dynamic-fare trip-eve trip-mix overpriced">The fares flagged with this symbol are over-priced for their time/zone. It doesn't make sense to buy this ticket/bundle, and you will save money by buying single tickets no matter how many trips you take.</td>
+                </tr>
+            </tfoot>
         </table>
 
     </section>
@@ -169,7 +475,7 @@
     <!-- Footer -->
     <footer class="primary-footer container">
 
-        <small>&copy; Fare Optimizer</small>
+        <small>Fare Optimizer &copy; 2018 R. S. Reitz</small>
 
     </footer>
 </body>
