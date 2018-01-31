@@ -14,6 +14,11 @@ body {
     font: Helvetica, Arial, sans-serif;
 }
 
+.logo,
+.tagline {
+    font: 'Merriweather', "Times New Roman", Times, serif;
+}
+
 
 /*
 ========================================
@@ -88,7 +93,7 @@ h5 {
     color: #787f85;
     font-size: 14px;
     font-weight: 400;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 
@@ -132,7 +137,7 @@ tbody th {
     font-size: 14px;
     font-weight: 400;
     padding-top: 22px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 tbody td {
@@ -144,8 +149,16 @@ tbody td {
     display: none;
 }
 
+.fare-alert {
+    color: default;
+}
+
 .overpriced {
     color: maroon;
+}
+
+.breakeven {
+    color: grey;
 }
 
 
@@ -153,10 +166,6 @@ tbody td {
 
 .overpriced::before {
     content: "\2020 ";
-}
-
-.breakeven {
-    color: grey;
 }
 
 
@@ -180,7 +189,7 @@ tbody td:only-of-type {
 }
 
 table a {
-    color: rgb(4, 73, 21);
+    color: rgb(5, 4, 73);
 }
 
 table h4 {
@@ -214,7 +223,7 @@ Primary header
     letter-spacing: .5px;
     line-height: 36px;
     padding: 40px 0 22px 0;
-    text-transform: uppercase;
+    font-variant: small-caps;
 }
 
 .logo a {
@@ -226,8 +235,8 @@ Primary header
 }
 
 .tagline {
-    margin: 66px 0 22px 0;
-    text-align: right;
+    float: right;
+    margin: 40px;
 }
 
 .head {
@@ -237,8 +246,8 @@ Primary header
     /* font-weight: 100; */
     letter-spacing: .5px;
     line-height: 36px;
-    padding: 40px 0 22px 0;
-    text-transform: uppercase;
+    padding: 20px 0;
+    /* text-transform: uppercase; */
 }
 
 .head p {
@@ -282,7 +291,7 @@ Primary footer
     font-weight: 400;
     letter-spacing: .5px;
     margin: 0;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .btn-alt {

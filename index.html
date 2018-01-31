@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Fare Optimizer</title>
     <link rel="stylesheet" href="assets/style/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <!-- <script src="main.js"></script> -->
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script type="text/javascript">
@@ -26,18 +27,27 @@
             // Check if the URL parameter is trip-day
             if (dynamicContent == 'Day') {
                 $('.trip-day').show();
+                $('.fare-breakeven').css("color", "default");
+                $('.fare-overpriced').css("color", "white");
             }
             // Check if the URL parameter is trip=eve
             else if (dynamicContent == 'Night') {
                 $('.trip-eve').show();
+                $('.fare-breakeven').css("color", "default");
+                $('.fare-overpriced').css("color", "default");
             }
             // Check if the URL parameter is trip-mix
             else if (dynamicContent == 'Mixed') {
                 $('.trip-mix').show();
+                $('.fare-breakeven').css("color", "default");
+                $('.fare-overpriced').css("color", "default");
             }
             // Check if the URL parmeter is empty or not defined, display default content
             else {
                 $('.trip-fare').show();
+                $('.fare-breakeven').css("color", "white");
+                $('.fare-overpriced').css("color", "white");
+
             }
         });
     </script>
@@ -461,11 +471,11 @@
             <tfoot>
                 <tr>
                     <td></td>
-                    <td colspan=4 class="dynamic-fare trip-day trip-eve trip-mix breakeven">The fares flagged with this symbol are "break-even" fares; they don't really save you money, but it doesn't cost extra to buy them.</td>
+                    <td colspan=4 class="fare-breakeven breakeven">The fares flagged with this symbol are "break-even" fares; they don't really save you money, but it doesn't cost extra to buy them.</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td colspan=4 class="dynamic-fare trip-eve trip-mix overpriced">The fares flagged with this symbol are over-priced for their time/zone. It doesn't make sense to buy this ticket/bundle, and you will save money by buying single tickets no matter how many trips you take.</td>
+                    <td colspan=4 class="fare-overpriced overpriced">The fares flagged with this symbol are over-priced for their time/zone. It doesn't make sense to buy this ticket/bundle, and you will save money by buying single tickets no matter how many trips you take.</td>
                 </tr>
             </tfoot>
         </table>
