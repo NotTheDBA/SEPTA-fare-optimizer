@@ -149,7 +149,11 @@ tbody td {
     display: none;
 }
 
-.fare-alert {
+.fare-overpriced {
+    color: default;
+}
+
+.fare-breakeven {
     color: default;
 }
 
