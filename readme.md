@@ -7,3 +7,5 @@ This project started as a mental exercise - given that I was going to be taking 
 This resulting one page app uses CSS styling with minimal javascript to update the visible content of the web page, based on user interactions.
 
 demo: <https://notthedba.github.io/septa-fare-optimizer/>
+
+![Optimizer](./septafares.JPG)
